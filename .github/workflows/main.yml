@@ -1,0 +1,39 @@
+name: Deploy via SFTP
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set BASE path
+      run: |
+        if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+          echo "BASE=/" >> $GITHUB_ENV
+        else
+          echo "BASE=/dev" >> $GITHUB_ENV
+        fi
+
+    - name: Patch .htaccess RewriteBase
+      run: |
+        sed -i "s|^RewriteBase .*|RewriteBase $BASE|" ./dist/.htaccess
+
+    - name: Deploy via SFTP
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+      with:
+        server: ${{ secrets.SFTP_HOST }}
+        port: ${{ secrets.SFTP_PORT }}
+        username: ${{ secrets.SFTP_USERNAME }}
+        password: ${{ secrets.SFTP_PASSWORD }}
+        local_path: ./dist/
+        remote_path: ${{ secrets.HTML_ROOT }}${{ env.BASE }}
+        sftp_only: true
+
