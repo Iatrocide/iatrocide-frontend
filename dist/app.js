@@ -133,7 +133,8 @@ class Router {
 
 // Initialize the router when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const router = new Router();
+    // Make router global for 404 page buttons
+    window.router = new Router();
     router.updateLinks();
     
     // Update resource links to handle /dev vs / paths
@@ -149,5 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (src && !src.startsWith('http') && !src.startsWith('//')) {
             script.setAttribute('src', router.getResourcePath(src));
         }
+    });
+    
+    // Handle 404 page navigation links
+    document.querySelectorAll('.error-links a[data-page]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = e.target.getAttribute('data-page');
+            router.navigate(page);
+        });
     });
 });
