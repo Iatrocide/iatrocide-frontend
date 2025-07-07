@@ -1,13 +1,16 @@
 class Router {
     constructor() {
         this.basePath = this.detectBasePath();
+        this.rootSuffix = this.basePath === '/dev' ? '' : '/';
         this.currentPage = null;
         this.init();
     }
 
     detectBasePath() {
         const path = window.location.pathname;
-        return path.startsWith('/dev') ? '/dev' : '';
+        return path === '/dev' || (path !== '/dev/' && path.startsWith('/dev/'))
+            ? '/dev'
+            : '';
     }
 
     init() {
@@ -60,7 +63,7 @@ class Router {
     }
 
     navigate(page, data = {}) {
-        const url = this.basePath + (page === 'home' ? '/' : `/${page}`);
+        const url = this.basePath + (page === 'home' ? this.rootSuffix : `/${page}`);
         window.history.pushState({ page, data }, '', url);
         this.showPage(page, data);
     }
@@ -73,18 +76,18 @@ class Router {
 
         // Show current page
         const pageElement = document.getElementById(`${page}-page`);
-        if (pageElement) {
-            pageElement.classList.add('active');
-        }
+        pageElement.classList.add('active');
 
         // Update navigation (don't highlight nav for 404)
         document.querySelectorAll('nav a').forEach(link => {
             link.classList.remove('active');
         });
 
-        const activeLink = document.querySelector(`nav a[data-page="${page}"]`);
-        if (activeLink) {
-            activeLink.classList.add('active');
+        if (page !== '404') {
+            const activeLink = document.querySelector(`nav a[data-page="${page}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
         }
 
         // Handle page-specific data
@@ -121,7 +124,7 @@ class Router {
     updateLinks() {
         document.querySelectorAll('nav a[data-page]').forEach(link => {
             const page = link.getAttribute('data-page');
-            const href = this.basePath + (page === 'home' ? '/' : `/${page}`);
+            const href = this.basePath + (page === 'home' ? this.rootSuffix : `/${page}`);
             link.setAttribute('href', href);
         });
     }
