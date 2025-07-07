@@ -1,16 +1,13 @@
 class Router {
     constructor() {
         this.basePath = this.detectBasePath();
-        this.rootSuffix = this.basePath === '/dev' ? '' : '/';
         this.currentPage = null;
         this.init();
     }
 
     detectBasePath() {
         const path = window.location.pathname;
-        return path === '/dev' || (path !== '/dev/' && path.startsWith('/dev/'))
-            ? '/dev'
-            : '';
+        return path.startsWith('/dev/') ? '/dev' : '';
     }
 
     init() {
@@ -63,7 +60,7 @@ class Router {
     }
 
     navigate(page, data = {}) {
-        const url = this.basePath + (page === 'home' ? this.rootSuffix : `/${page}`);
+        const url = this.basePath + (page === 'home' ? '/' : `/${page}`);
         window.history.pushState({ page, data }, '', url);
         this.showPage(page, data);
     }
@@ -122,7 +119,7 @@ class Router {
     updateLinks() {
         document.querySelectorAll('nav a[data-page]').forEach(link => {
             const page = link.getAttribute('data-page');
-            const href = this.basePath + (page === 'home' ? this.rootSuffix : `/${page}`);
+            const href = this.basePath + (page === 'home' ? '/' : `/${page}`);
             link.setAttribute('href', href);
         });
     }

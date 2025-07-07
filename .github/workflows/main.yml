@@ -22,10 +22,9 @@ jobs:
           echo "BASE=/dev" >> $GITHUB_ENV
         fi
 
-    - name: Patch files with base path
+    - name: Patch htaccess with base path
       run: |
         sed -i "s|^RewriteBase .*|RewriteBase $BASE|" ./dist/.htaccess
-        sed -i "s|<script src=\"/app.js\"></script>|<script src=\"$BASE/app.js\"></script>|" ./dist/index.html
 
     - name: Deploy via SFTP
       uses: wlixcc/SFTP-Deploy-Action@v1.2.6
