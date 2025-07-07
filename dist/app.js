@@ -75,10 +75,6 @@ class Router {
         const pageElement = document.getElementById(`${page}-page`);
         if (pageElement) {
             pageElement.classList.add('active');
-        } else {
-            // If page doesn't exist, show 404
-            document.getElementById('404-page').classList.add('active');
-            page = '404';
         }
 
         // Update navigation (don't highlight nav for 404)
@@ -86,11 +82,9 @@ class Router {
             link.classList.remove('active');
         });
 
-        if (page !== '404') {
-            const activeLink = document.querySelector(`nav a[data-page="${page}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
+        const activeLink = document.querySelector(`nav a[data-page="${page}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
         }
 
         // Handle page-specific data
