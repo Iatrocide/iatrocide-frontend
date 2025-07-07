@@ -85,9 +85,7 @@ class Router {
 
         if (page !== '404') {
             const activeLink = document.querySelector(`nav a[data-page="${page}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
+            activeLink.classList.add('active');
         }
 
         // Handle page-specific data
