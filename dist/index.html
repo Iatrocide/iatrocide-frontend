@@ -13,10 +13,11 @@
             <nav>
                 <a href="#" data-page="home">Home</a>
                 <a href="#" data-page="submit">Submit</a>
+                <a href="#" data-page="archive">Archive</a>
             </nav>
         </div>
     </header>
-    
+
     <main>
         <div class="container">
             <div id="home-page" class="page active">
@@ -32,9 +33,9 @@
                     <button type="submit">Submit</button>
                 </form>
             </div>
-            
+
             <div id="submit-page" class="page">
-                <h2>Submit for Testing</h2>
+                <h2>Submit Evidence</h2>
                 <div class="intro">
                     <p>Please fill out the form below to submit evidence of harmful content for documentation and accountability.</p>
                 </div>
@@ -44,62 +45,59 @@
                             <label for="person-name">Name (person/institution):</label>
                             <input type="text" id="person-name" name="personName" placeholder="Individual or organization name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="person-details">Details (optional):</label>
                             <input type="text" id="person-details" name="personDetails" placeholder="Additional details to differentiate common names">
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="evidence-link">Link to evidence:</label>
                             <input type="url" id="evidence-link" name="evidenceLink" placeholder="https://example.com/post" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="archive-link">Archival link (optional):</label>
-                            <input type="url" id="archive-link" name="archiveLink" placeholder="https://archive.today/...">
+                            <input type="url" id="archive-link" name="archiveLink" placeholder="https://archive.ph/xxxxx">
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="screenshot">Upload screenshot (optional):</label>
                         <input type="file" id="screenshot" name="screenshot" accept="image/*">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="description">Description/context:</label>
                         <textarea id="description" name="description" rows="4" placeholder="Provide context and description of the harmful content..." required></textarea>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="tags">Tags/Categories:</label>
                         <select id="tags" name="tags" multiple required>
                             <option value="genocide-incitement">Genocide Incitement</option>
                             <option value="racial-dehumanization">Racial Dehumanization</option>
                             <option value="iatrocide">Iatrocide</option>
-                            <option value="hate-speech">Hate Speech</option>
-                            <option value="medical-misinformation">Medical Misinformation</option>
-                            <option value="violence-advocacy">Violence Advocacy</option>
-                            <option value="discrimination">Discrimination</option>
                             <option value="other">Other</option>
                         </select>
                         <small>Hold Ctrl/Cmd to select multiple categories</small>
                     </div>
-                    
+
                     <button type="submit">Submit Evidence</button>
                 </form>
             </div>
         </div>
     </main>
-    
+
     <footer>
         <div class="container">
-            <p>&copy; 2024 Iatrocide. All rights reserved.</p>
+            <p>Iatrocide.org</p>
+            <p>Genospectra@gmail.com</p>
         </div>
     </footer>
-    
+
     <script src="app.js"></script>
 </body>
 </html>
