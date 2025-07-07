@@ -7,8 +7,8 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
+    color: #e0e0e0;
+    background-color: #121212;
 }
 
 .container {
@@ -18,10 +18,11 @@ body {
 }
 
 header {
-    background: #2c3e50;
+    background: #1a1a1a;
     color: white;
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #dc2626;
 }
 
 header h1 {
@@ -44,7 +45,7 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    background-color: #34495e;
+    background-color: #dc2626;
 }
 
 main {
@@ -54,10 +55,11 @@ main {
 
 .page {
     display: none;
-    background: white;
+    background: #1e1e1e;
     border-radius: 8px;
     padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border: 1px solid #333;
 }
 
 .page.active {
@@ -65,7 +67,7 @@ main {
 }
 
 .page h2 {
-    color: #2c3e50;
+    color: #dc2626;
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
 }
@@ -78,33 +80,37 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #555;
+    color: #b0b0b0;
 }
 
 input, textarea, select {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #ddd;
+    border: 2px solid #404040;
     border-radius: 4px;
     font-size: 1rem;
     transition: border-color 0.3s;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
 }
 
 input:focus, textarea:focus, select:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
 input[type="file"] {
     padding: 0.5rem;
-    border: 2px dashed #ddd;
-    background-color: #f9f9f9;
+    border: 2px dashed #404040;
+    background-color: #2a2a2a;
     cursor: pointer;
+    color: #e0e0e0;
 }
 
 input[type="file"]:hover {
-    border-color: #3498db;
-    background-color: #f0f8ff;
+    border-color: #dc2626;
+    background-color: #1a1a1a;
 }
 
 select[multiple] {
@@ -118,45 +124,50 @@ select[multiple] option {
 }
 
 small {
-    color: #666;
+    color: #888;
     font-size: 0.9rem;
     margin-top: 0.5rem;
     display: block;
 }
 
 button {
-    background: #3498db;
+    background: #dc2626;
     color: white;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    font-weight: 500;
 }
 
 button:hover {
-    background: #2980b9;
+    background: #b91c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
 }
 
 .intro {
-    background: #ecf0f1;
+    background: #2a2a2a;
     padding: 1.5rem;
     border-radius: 6px;
     margin-bottom: 2rem;
+    border-left: 4px solid #dc2626;
 }
 
 .intro p {
-    color: #555;
+    color: #b0b0b0;
     font-size: 1.1rem;
 }
 
 footer {
-    background: #34495e;
-    color: white;
+    background: #1a1a1a;
+    color: #b0b0b0;
     text-align: center;
     padding: 1.5rem 0;
     margin-top: 2rem;
+    border-top: 2px solid #dc2626;
 }
 
 .form-row {
@@ -168,6 +179,179 @@ footer {
     flex: 1;
 }
 
+.tag-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.tag-option {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid #404040;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #2a2a2a;
+    user-select: none;
+}
+
+.tag-option:hover {
+    border-color: #dc2626;
+    background-color: #1a1a1a;
+}
+
+.tag-option input[type="checkbox"] {
+    width: auto;
+    margin: 0 0.5rem 0 0;
+    cursor: pointer;
+}
+
+.tag-option input[type="checkbox"]:checked + .tag-label {
+    font-weight: 600;
+    color: #dc2626;
+}
+
+.tag-option:has(input[type="checkbox"]:checked) {
+    border-color: #dc2626;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.2);
+}
+
+.tag-label {
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #b0b0b0;
+    transition: color 0.3s ease;
+}
+
+.mission-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border-left: 4px solid #dc2626;
+}
+
+.mission-section h3 {
+    color: #dc2626;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #888;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #404040;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.1);
+}
+
+.feature-card h4 {
+    color: #dc2626;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.feature-card p {
+    color: #b0b0b0;
+    line-height: 1.5;
+}
+
+.faq-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.faq-section h3 {
+    color: #dc2626;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #2a2a2a;
+    border-radius: 6px;
+    border-left: 3px solid #dc2626;
+}
+
+.faq-item h4 {
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.faq-item p {
+    color: #b0b0b0;
+    line-height: 1.5;
+}
+
+.developer-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border: 2px dashed #dc2626;
+    text-align: center;
+}
+
+.developer-section h3 {
+    color: #dc2626;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.developer-section p {
+    color: #b0b0b0;
+    margin-bottom: 0.5rem;
+}
+
+.submit-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.submit-section h3 {
+    color: #dc2626;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.submit-section p {
+    color: #b0b0b0;
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
     .form-row {
         flex-direction: column;
@@ -175,5 +359,27 @@ footer {
     
     nav a {
         margin-right: 1rem;
+    }
+    
+    .tag-selection {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .tag-option {
+        width: 100%;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .mission-section,
+    .faq-section,
+    .developer-section,
+    .submit-section {
+        padding: 1rem;
+        margin: 1.5rem 0;
     }
 }

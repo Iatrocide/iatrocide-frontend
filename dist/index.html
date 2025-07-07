@@ -21,17 +21,70 @@
     <main>
         <div class="container">
             <div id="home-page" class="page active">
-                <h2>Welcome to Iatrocide</h2>
+                <h2>Genospectra: Iatrocide</h2>
                 <div class="intro">
-                    <p>Submit evidence of harmful content for documentation. Enter the link to evidence below and click submit to proceed to the submission form.</p>
+                    <p><strong>Uncovering Medical Genocide: Truth, Memory, Resistance</strong></p>
+                    <p>Iatrocide confronts systemic medical abuse with survivor-led archives—exposing incitement, denial, and neglect. We don't just document harm. We name it, trace it, and demand accountability.</p>
                 </div>
-                <form id="evidence-form">
-                    <div class="form-group">
-                        <label for="evidence-input">Link to evidence:</label>
-                        <input type="url" id="evidence-input" name="evidence" placeholder="https://example.com/post" required>
+
+                <div class="mission-section">
+                    <h3>Our Mission</h3>
+                    <p>Genospectra: Iatrocide is a survivor-led initiative committed to exposing medical genocidal incitement and unethical practices. We document testimonies and evidence to raise awareness, promote accountability, and inspire systemic change within healthcare institutions.</p>
+                    <p class="subtitle">Unveiling Medical Atrocities to Inspire Reform</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>Extensive Survivor-Led Archives</h4>
+                        <p>Discover meticulously documented cases revealing medical field abuses and incitement.</p>
                     </div>
-                    <button type="submit">Submit</button>
-                </form>
+                    <div class="feature-card">
+                        <h4>Interactive Awareness Tools</h4>
+                        <p>Engage with dynamic resources designed to educate and mobilize public action.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Community Advocacy Network</h4>
+                        <p>Connect with activists and experts dedicated to ethical reform and justice.</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-item">
+                        <h4>What is the mission of Genospectra: Iatrocide?</h4>
+                        <p>We document and expose genocidal incitement and ethical breaches within healthcare to promote justice and change.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Who leads the Genospectra: Iatrocide initiative?</h4>
+                        <p>Survivors with firsthand experience guide our work to ensure authentic representation and impact.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How can I access the archival records?</h4>
+                        <p>Our digital archive is accessible online, providing comprehensive documentation for public research.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How does Genospectra: Iatrocide support advocacy?</h4>
+                        <p>By raising awareness, we encourage policy reforms and ethical accountability in the medical field.</p>
+                    </div>
+                </div>
+
+                <div class="developer-section">
+                    <h3>We're actively looking for developers</h3>
+                    <p>Do you want to participate in the development of this site? Get in contact with us:</p>
+                    <p><strong>Genospectra@gmail.com</strong></p>
+                </div>
+
+                <div class="submit-section">
+                    <h3>Submit Evidence</h3>
+                    <p>Submit evidence of harmful content for documentation. Enter the link to evidence below and click submit to proceed to the submission form.</p>
+                    <form id="evidence-form">
+                        <div class="form-group">
+                            <label for="evidence-input">Link to evidence:</label>
+                            <input type="url" id="evidence-input" name="evidence" placeholder="https://example.com/post" required>
+                        </div>
+                        <button type="submit">Submit Evidence</button>
+                    </form>
+                </div>
             </div>
 
             <div id="submit-page" class="page">
@@ -65,8 +118,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="screenshot">Upload screenshot (optional):</label>
-                        <input type="file" id="screenshot" name="screenshot" accept="image/*">
+                        <label for="screenshots">Upload screenshots (optional):</label>
+                        <input type="file" id="screenshots" name="screenshots" accept="image/*" multiple>
                     </div>
 
                     <div class="form-group">
@@ -75,18 +128,37 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tags">Tags/Categories:</label>
-                        <select id="tags" name="tags" multiple required>
-                            <option value="genocide-incitement">Genocide Incitement</option>
-                            <option value="racial-dehumanization">Racial Dehumanization</option>
-                            <option value="iatrocide">Iatrocide</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <small>Hold Ctrl/Cmd to select multiple categories</small>
+                        <label>Tags/Categories:</label>
+                        <div class="tag-selection">
+                            <label class="tag-option">
+                                <input type="checkbox" name="tags" value="genocide-incitement">
+                                <span class="tag-label">Genocide Incitement</span>
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" name="tags" value="racial-dehumanization">
+                                <span class="tag-label">Racial Dehumanization</span>
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" name="tags" value="iatrocide">
+                                <span class="tag-label">Iatrocide</span>
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" name="tags" value="other">
+                                <span class="tag-label">Other</span>
+                            </label>
+                        </div>
                     </div>
 
                     <button type="submit">Submit Evidence</button>
                 </form>
+            </div>
+
+            <div id="archive-page" class="page">
+                <h2>Archive</h2>
+                <div class="intro">
+                    <p>Browse and search through submitted evidence. Archive functionality will be implemented here.</p>
+                </div>
+                <p>Coming soon...</p>
             </div>
         </div>
     </main>

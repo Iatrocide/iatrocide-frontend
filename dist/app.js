@@ -50,6 +50,8 @@ class Router {
         
         if (cleanPath === '/submit') {
             this.showPage('submit');
+        } else if (cleanPath === '/archive') {
+            this.showPage('archive');
         } else {
             this.showPage('home');
         }
@@ -101,9 +103,9 @@ class Router {
             data[key] = value;
         }
         
-        // Handle multiple select for tags
-        const tagsSelect = document.getElementById('tags');
-        const selectedTags = Array.from(tagsSelect.selectedOptions).map(option => option.value);
+        // Handle checkbox tags
+        const tagCheckboxes = document.querySelectorAll('input[name="tags"]:checked');
+        const selectedTags = Array.from(tagCheckboxes).map(checkbox => checkbox.value);
         data.tags = selectedTags;
         
         // In a real application, this would send data to a server
