@@ -1,1 +1,380 @@
-TEST......
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iatrocide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        nav {
+            margin-top: 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            background-color: #34495e;
+        }
+        
+        main {
+            min-height: calc(100vh - 200px);
+            padding: 2rem 0;
+        }
+        
+        .page {
+            display: none;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .page h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        .intro {
+            background: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+        
+        .intro p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+            
+            nav a {
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Iatrocide</h1>
+            <nav>
+                <a href="#" data-page="home">Home</a>
+                <a href="#" data-page="submit">Submit</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div id="home-page" class="page active">
+                <h2>Welcome to Iatrocide</h2>
+                <div class="intro">
+                    <p>Submit a URL for analysis and testing. Enter the URL below and click submit to proceed to the testing form.</p>
+                </div>
+                <form id="url-form">
+                    <div class="form-group">
+                        <label for="url-input">URL to analyze:</label>
+                        <input type="url" id="url-input" name="url" placeholder="https://example.com" required>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            
+            <div id="submit-page" class="page">
+                <h2>Submit for Testing</h2>
+                <div class="intro">
+                    <p>Please fill out the form below to submit your URL for comprehensive testing and analysis.</p>
+                </div>
+                <form id="testing-form">
+                    <div class="form-group">
+                        <label for="test-url">URL:</label>
+                        <input type="url" id="test-url" name="url" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="test-type">Test Type:</label>
+                            <select id="test-type" name="testType" required>
+                                <option value="">Select test type...</option>
+                                <option value="security">Security Analysis</option>
+                                <option value="performance">Performance Testing</option>
+                                <option value="accessibility">Accessibility Check</option>
+                                <option value="seo">SEO Analysis</option>
+                                <option value="comprehensive">Comprehensive Test</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="priority">Priority:</label>
+                            <select id="priority" name="priority" required>
+                                <option value="">Select priority...</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Contact Email:</label>
+                        <input type="email" id="contact-email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description (optional):</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Provide any additional context or specific areas of concern..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notify-completion">
+                            <input type="checkbox" id="notify-completion" name="notifyCompletion" style="width: auto; margin-right: 0.5rem;">
+                            Notify me when testing is complete
+                        </label>
+                    </div>
+                    
+                    <button type="submit">Submit for Testing</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Iatrocide. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        class Router {
+            constructor() {
+                this.basePath = this.detectBasePath();
+                this.currentPage = null;
+                this.init();
+            }
+            
+            detectBasePath() {
+                const path = window.location.pathname;
+                return path.startsWith('/dev') ? '/dev' : '';
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.handleInitialRoute();
+            }
+            
+            setupEventListeners() {
+                // Navigation links
+                document.querySelectorAll('nav a[data-page]').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const page = e.target.getAttribute('data-page');
+                        this.navigate(page);
+                    });
+                });
+                
+                // URL form submission
+                document.getElementById('url-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const url = document.getElementById('url-input').value;
+                    this.navigate('submit', { url });
+                });
+                
+                // Testing form submission
+                document.getElementById('testing-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleTestingSubmit();
+                });
+                
+                // Browser back/forward
+                window.addEventListener('popstate', () => {
+                    this.handleInitialRoute();
+                });
+            }
+            
+            handleInitialRoute() {
+                const path = window.location.pathname;
+                const cleanPath = path.replace(this.basePath, '') || '/';
+                
+                if (cleanPath === '/submit') {
+                    this.showPage('submit');
+                } else {
+                    this.showPage('home');
+                }
+            }
+            
+            navigate(page, data = {}) {
+                const url = this.basePath + (page === 'home' ? '/' : `/${page}`);
+                window.history.pushState({ page, data }, '', url);
+                this.showPage(page, data);
+            }
+            
+            showPage(page, data = {}) {
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(p => {
+                    p.classList.remove('active');
+                });
+                
+                // Show current page
+                const pageElement = document.getElementById(`${page}-page`);
+                if (pageElement) {
+                    pageElement.classList.add('active');
+                }
+                
+                // Update navigation
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                const activeLink = document.querySelector(`nav a[data-page="${page}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+                
+                // Handle page-specific data
+                if (page === 'submit' && data.url) {
+                    document.getElementById('test-url').value = data.url;
+                }
+                
+                this.currentPage = page;
+            }
+            
+            handleTestingSubmit() {
+                const form = document.getElementById('testing-form');
+                const formData = new FormData(form);
+                
+                // Convert form data to object
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                
+                // In a real application, this would send data to a server
+                console.log('Testing submission:', data);
+                alert('Thank you for your submission! We will process your request and contact you soon.');
+                
+                // Navigate back to home
+                this.navigate('home');
+            }
+            
+            updateLinks() {
+                document.querySelectorAll('nav a[data-page]').forEach(link => {
+                    const page = link.getAttribute('data-page');
+                    const href = this.basePath + (page === 'home' ? '/' : `/${page}`);
+                    link.setAttribute('href', href);
+                });
+            }
+        }
+        
+        // Initialize the router when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const router = new Router();
+            router.updateLinks();
+        });
+    </script>
+</body>
+</html>
